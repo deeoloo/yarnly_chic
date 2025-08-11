@@ -15,13 +15,13 @@ const Footer = () => {
             <Link to="/socials" className="hover:underline">Socials</Link>
           </nav>
           <div className="flex items-center gap-4 text-2xl">
-            <a href="https://instagram.com/thehandle" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/yarnlychic_ke?igsh=ZzZoMnUxdmoydm12" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </a>
-            <a href="https://youtube.com/@thechannel" target="_blank" rel="noopener noreferrer">
+            <a href="https://youtube.com/@yarnlychic_ke?si=EeKOLhg_-H3znu8I" target="_blank" rel="noopener noreferrer">
               <FaYoutube />
             </a>
-            <a href="https://tiktok.com/@thehandle" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.tiktok.com/@yarnlychic_ke?_t=ZM-8ymvGZKhmUi&_r=1" target="_blank" rel="noopener noreferrer">
               <FaTiktok />
             </a>
           </div>
