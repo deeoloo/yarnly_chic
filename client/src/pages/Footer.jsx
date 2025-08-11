@@ -8,7 +8,7 @@ const Footer = () => {
         
         <div className="bg-gray-200 p-6 rounded">
           <Link to="/" className="font-semibold text-lg mb-3 inline-block hover:underline">
-            Logo
+            YarnlyChic
           </Link>
           <nav className="flex flex-col gap-2 mb-4">
             <Link to="/policies" className="hover:underline">Policies</Link>
