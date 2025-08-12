@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useCallback, useEffect, useMemo, useState } from "react"
 
 export const ApiContext = createContext();
 
@@ -21,9 +21,74 @@ function ContextProvider({children}){
         setProducts(normalized);
       });
   }, []);
+
+    //cart
+    const [cart, setCart] = useState(() => {
+      try {
+        return JSON.parse(localStorage.getItem('cart.v1')) || [];
+      }
+      catch{
+        return [];
+      }
+    });
+
+      useEffect(() => {
+        localStorage.setItem('cart.v1', JSON.stringify(cart));
+      }, [cart]);
+
+    const addToCart = ((product) => {
+      setCart(prev => {
+        const existing = prev.find(p => p.id === product.id);
+        if (!existing== -1) {
+          const next=[...prev];
+          next[existing] = {
+            ...next[existing],
+            quantity: next[existing].quantity + 1
+          };
+          return next;
+        }
+        return [...prev,
+          { id: product.id,
+            name: product.name,
+            price: product.price,
+            images: product.images?.[0] || '', 
+            quantity,
+          },
+        ];
+      });
+    }, []);
+
+    const removeFromCart = useCallback(
+      id => setCart(prev => prev.filter(p => p.id !== id)),
+      []
+    );
+
+    const updateQuantity = useCallback(
+      (id, quantity) => setCart(prev => prev.map(p => p.id?{
+        ...p, quantity:Math.max(1, quantity)} : p)),
+      []
+    );
+
+    const clearCart = useCallback(() => setCart([]), []);
+
+    const subtotal = useMemo(() => {
+      return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    }, [cart]);
     
+    const value = useMemo(() => ({
+      products,
+      cart,
+      addToCart,
+      removeFromCart,
+      updateQuantity,
+      clearCart,
+      subtotal,
+    }), 
+    [products, cart, addToCart, removeFromCart, updateQuantity, clearCart, subtotal]
+  );
+
     return(
-        <ApiContext.Provider value={products}>
+        <ApiContext.Provider value= {value} >
             {children}
         </ApiContext.Provider>
     )
