@@ -79,7 +79,7 @@ export default function Cart({ onCheckout }) {
                     </button>
                     <span className="w-8 text-center">{product.quantity}</span>
                     <button
-                      onClick={() => updateQty(it.id, (product.quantitity || 1) + 1)}
+                      onClick={() => updateQty(product.id, (product.quantitity || 1) + 1)}
                       className="px-2 py-1 rounded border"
                       aria-label={`Increase ${product.name} quantity`}
                     >
@@ -95,7 +95,7 @@ export default function Cart({ onCheckout }) {
                 <td className="p-3 text-right">
                   <button
                     onClick={() => removeFromCart(product.id)}
-                    className="text-red-600 hover:underline"
+                    className="hover:underline"
                   >
                     Remove
                   </button>
