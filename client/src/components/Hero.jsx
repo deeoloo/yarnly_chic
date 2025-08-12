@@ -1,7 +1,7 @@
 function Hero() {
     return(
-        <div className="relative">
-            <img className="w-full object-cover" src="https://placehold.co/1920x900" alt="Collection photo" />
+        <div className="relative h-[80vh]">
+            <img className="w-full h-full object-cover" src="https://placehold.co/1920x900" alt="Collection photo" />
             <div className="absolute bottom-30 w-full text-white">
                 <h2 className="text-center text-2xl z-10 p-5">
                     NAME OF COLLECTION
