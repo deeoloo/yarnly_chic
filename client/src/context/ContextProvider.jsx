@@ -22,6 +22,13 @@ function ContextProvider({children}){
       });
   }, []);
 
+  const assetUrl = useCallback((path) => {
+    if (!path) return "";
+    const s = String(path);
+    if (/^https?:\/\//i.test(s)) return s;
+    return new URL(s.replace(/^\/+/, ""), `${apiUrl}/`).toString();
+  }, []);
+
     //cart
     const [cart, setCart] = useState(() => {
       try {
@@ -51,7 +58,7 @@ function ContextProvider({children}){
           { id: product.id,
             name: product.name,
             price: product.price,
-            images: product.images?.[0] || '', 
+            images: product.images?.[0] || "", 
             quantity,
           },
         ];
@@ -76,15 +83,17 @@ function ContextProvider({children}){
     }, [cart]);
     
     const value = useMemo(() => ({
+      apiUrl,
       products,
       cart,
+      assetUrl,
       addToCart,
       removeFromCart,
       updateQuantity,
       clearCart,
       subtotal,
     }), 
-    [products, cart, addToCart, removeFromCart, updateQuantity, clearCart, subtotal]
+    [products, assetUrl, cart, addToCart, removeFromCart, updateQuantity, clearCart, subtotal]
   );
 
     return(
