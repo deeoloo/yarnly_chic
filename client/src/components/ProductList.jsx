@@ -3,8 +3,8 @@ import { ApiContext } from "../context/ContextProvider"
 import ProductCard from "./ProductCard"
 
 function ProductList(){
-    const products = useContext(ApiContext)
-        
+    const value = useContext(ApiContext)
+    const products = value.products
     return(
         <div className="flex overflow-x-auto space-x-4 scrollbar-hide my-15 bg-purple-100 p-10">
             {
