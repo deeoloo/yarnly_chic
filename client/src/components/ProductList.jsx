@@ -6,7 +6,7 @@ function ProductList(){
     const value = useContext(ApiContext)
     const products = value.products
     return(
-        <div className="flex overflow-x-auto space-x-4 scrollbar-hide my-15 bg-purple-100 p-10">
+        <div className="flex  w-full overflow-x-auto space-x-4 scrollbar-hide my-15 bg-purple-100 p-10">
             {
              products.map((prod,i)=><ProductCard 
                                     key={prod.id || i}

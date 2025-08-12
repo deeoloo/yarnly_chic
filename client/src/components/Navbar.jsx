@@ -28,7 +28,7 @@ function Navbar() {
 
             <div className="hidden md:flex space-x-8 items-center">
               <a href="#">NEW IN</a>
-              <a href="#">SHOP</a>
+              <a href="/shop">SHOP</a>
               <a href="#">ABOUT</a>
             </div>
 
