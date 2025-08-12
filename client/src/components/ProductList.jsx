@@ -1,11 +1,18 @@
-import Product from "./Product"
+import { useContext } from "react"
+import { ApiContext } from "../context/ContextProvider"
+import ProductCard from "./ProductCard"
 
 function ProductList(){
-    const products = [8,2,2,2,2,2]
+    const products = useContext(ApiContext)
+        
     return(
-        <div className="flex overflow-x-auto space-x-4 scrollbar-hide my-15 ">
+        <div className="flex overflow-x-auto space-x-4 scrollbar-hide my-15 bg-purple-100 p-10">
             {
-             products.map((_,i)=><Product key={i}/>)   
+             products.map((prod,i)=><ProductCard 
+                                    key={prod.id || i}
+                                    image={prod.images[0]}
+                                    name={prod.name}
+                                    price={prod.price}/>)   
             }
         </div>
     )

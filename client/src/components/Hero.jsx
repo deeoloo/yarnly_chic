@@ -1,7 +1,12 @@
+import { useContext } from "react"
+import { ApiContext } from "../context/ContextProvider"
+
 function Hero() {
+    const products = useContext(ApiContext)
+    
     return(
         <div className="relative h-[80vh]">
-            <img className="w-full h-full object-cover" src="https://placehold.co/1920x900" alt="Collection photo" />
+            <img className="w-full h-full object-contain" src={products[0]?.images[0] || "https://placehold.co/1920x900"} alt="Collection photo" />
             <div className="absolute bottom-30 w-full text-white">
                 <h2 className="text-center text-2xl z-10 p-5">
                     NAME OF COLLECTION
