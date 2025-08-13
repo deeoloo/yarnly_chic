@@ -1,11 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext, useState} from "react";
+import { useNavigate } from "react-router-dom";
 import { ApiContext } from "../context/ContextProvider";
 
 const fmtKES = n =>
   new Intl.NumberFormat("en-KE", { style: "currency", currency: "KES", maximumFractionDigits: 2 })
     .format(Number(n) || 0);
 
-export default function Cart({ onCheckout }) {
+function Cart() {
+  const navigate = useNavigate();
   const { cart, updateQty, removeFromCart, subtotal, clearCart } = useContext(ApiContext);
   const [agreed, setAgreed] = useState(false);
 
@@ -79,7 +81,7 @@ export default function Cart({ onCheckout }) {
             <span className="font-bold">{fmtKES(subtotal)}</span>
           </div>
           <button
-            onClick={() => agreed && onCheckout?.()}
+            onClick={() => agreed && navigate("/checkout")}
             disabled={!agreed}
             className={`px-5 py-3 rounded-xl font-semibold text-white ${agreed ? "bg-black" : "bg-gray-400 cursor-not-allowed"}`}>
             Checkout
@@ -91,3 +93,5 @@ export default function Cart({ onCheckout }) {
     </div>
   );
 }
+
+export default Cart;

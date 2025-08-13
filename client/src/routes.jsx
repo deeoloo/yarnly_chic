@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import Shop from "./pages/Shop"
 import About from "./pages/About"
 import Cart from "./components/Cart"
+import Checkout from "./components/Checkout"
 
 
 export const routes = createBrowserRouter([
@@ -26,6 +27,10 @@ export const routes = createBrowserRouter([
             {
                 path: 'cart',
                 element: <Cart/>
+            },
+            {
+                path: 'checkout',
+                element: <Checkout/>
             }
         ]
     }
