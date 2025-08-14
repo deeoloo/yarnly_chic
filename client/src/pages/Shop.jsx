@@ -34,6 +34,7 @@ function Shop() {
               name={prod.name}
               price={prod.price}
               image={prod.images[0]}
+              product={prod}
             />
           ))
         ) : (

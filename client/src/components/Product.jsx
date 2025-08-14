@@ -1,0 +1,94 @@
+import { FaMinus, FaPlus } from "react-icons/fa";
+import Breadcrumbs from "./Breadcrumb";
+import { useLocation} from "react-router-dom";
+import { useContext, useState } from "react";
+import { ApiContext } from "../context/ContextProvider";
+
+function Product(){
+    const {addToCart} = useContext(ApiContext)
+    const location = useLocation();
+    const {product} = location.state;
+
+    const [formdata, setFormData] = useState({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        size:"",
+        quantity: 0
+    })
+    const breadcrumbItems = [
+        { label: "Home", href: "/" },
+        { label: product.name, href: "" }, 
+    ];
+
+    function handleSubmit(e){
+        console.log(e)
+        addToCart(formdata)
+        setFormData({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            size:"",
+            quantity: 0
+        })
+    }
+    
+    return (
+        <div className="w-full h-fit relative top-20 mb-20">
+            <Breadcrumbs items={breadcrumbItems}/>
+            <div className="flex flex-col lg:flex-row gap-4 max-w-[900px] mx-auto border">
+                <div className="w-1/2 mx-auto">
+                    <img 
+                    className="w-full object-contain"
+                    src={product.images[0]} 
+                    alt={product.name} />
+                </div>
+
+                <div className="mx-auto w-1/2">
+                    <h2 className="text-xl font-bold p-2">{product.name}</h2>
+                    <p className="text-lg p-2   ">KSH {product.price}</p>
+
+                    <div className="flex justify-between mt-3 py-1 px-2 items-center">
+                        <span className="">Size: {formdata.size}</span>
+                        <div className="w-fit">
+                            <span className="font-bold"> Find your size</span>
+                            <div className="w-full h-0.5 rounded-full bg-black"></div>
+                        </div>
+                    </div>
+
+                    <select 
+                    className="w-full border mb-4 text-lg p-1 " 
+                    name="size" 
+                    id="size" 
+                    value={formdata.size}
+                    onChange={(e)=> setFormData({
+                        ...formdata,
+                        size: e.target.value
+                    })}>
+                        <option value=""></option>
+                        <option value="s">Small</option>
+                        <option value="m">Medium</option>
+                        <option value="l">Large</option>
+                    </select>
+
+                    <div className="">
+                        <span className="">Quantity({} in cart)</span>
+                        <div className="w-30 p-1 bg-purple-500 flex justify-between">
+                            <button type="button" onClick={()=>setFormData({...formdata, quantity : formdata.quantity - 1})}>
+                                <FaMinus className="text-white"/>
+                            </button>
+                            <span className="text-white font-bold">{formdata.quantity}</span>
+                            <button type="button" onClick={()=>setFormData({...formdata, quantity : formdata.quantity + 1})}>
+                                <FaPlus className="text-white"/>
+                            </button>
+                        </div>
+                    </div>
+                    <button onClick={handleSubmit} className="w-full bg-purple-800 text-white font-bold p-2 my-5">Add to Cart</button>
+                </div>
+            </div>
+            
+        </div>
+    )
+}
+
+export default Product

@@ -43,7 +43,7 @@ function ContextProvider({children}){
         localStorage.setItem('cart.v1', JSON.stringify(cart));
       }, [cart]);
 
-    const addToCart = ((product) => {
+    const addToCart = useCallback((product) => {
       setCart(prev => {
         const existing = prev.find(p => p.id === product.id);
         if (!existing== -1) {
@@ -59,7 +59,8 @@ function ContextProvider({children}){
             name: product.name,
             price: product.price,
             images: product.images?.[0] || "", 
-            quantity,
+            size: product.size,
+            quantity: product.quantity
           },
         ];
       });

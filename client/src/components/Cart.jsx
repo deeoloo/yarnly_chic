@@ -12,7 +12,7 @@ function Cart() {
   const [agreed, setAgreed] = useState(false);
 
   if (!cart?.length) return <div className="p-6 text-center text-gray-600">Your cart is empty.</div>;
-
+  console.log(cart)
   return (
     <div className="p-4 space-y-6">
       <div className="flex items-center justify-between">
