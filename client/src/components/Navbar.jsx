@@ -25,7 +25,7 @@ function Navbar() {
               </button>
 
               <Link to='/'>
-                <h1 className="text-xl font-bold">Logo</h1>
+                <h1 className="text-xl font-bold">YarnlyChic</h1>
               </Link>
             </div>
 

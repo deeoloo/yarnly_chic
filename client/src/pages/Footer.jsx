@@ -3,7 +3,7 @@ import { FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-purple-800 py-10">
+    <footer className="bg-purple-800 py-10 w-full relative ">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-black">
         
         <div className="bg-gray-200 p-6 rounded">

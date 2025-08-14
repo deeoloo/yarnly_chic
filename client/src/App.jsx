@@ -7,10 +7,10 @@ import Footer from './pages/Footer'
 function App() {
 
   return (
-      <div className="">
+      <div className="flex flex-col min-h-screen">
         <Banner/>
         <Navbar/>
-        <div className="">
+        <div className="flex-grow">
             <Outlet/>
         </div>
         <Footer/>
