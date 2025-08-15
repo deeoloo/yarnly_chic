@@ -38,7 +38,7 @@ function Cart() {
                 <tr key={p.id} className="border-t">
                   <td className="p-3">
                     <div className="flex items-center gap-3">
-                      <img src={p.image} alt={p.name} className="w-14 h-14 object-cover rounded" />
+                      <img src={p.images} alt={p.name} className="w-14 h-14 object-cover rounded" />
                       <div className="min-w-0"><div className="font-medium truncate">{p.name}</div></div>
                     </div>
                   </td>
