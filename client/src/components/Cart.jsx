@@ -8,7 +8,7 @@ const fmtKES = n =>
 
 function Cart() {
   const navigate = useNavigate();
-  const { cart, updateQty, removeFromCart, subtotal, clearCart } = useContext(ApiContext);
+  const { cart, updateQuantity, removeFromCart, subtotal, clearCart } = useContext(ApiContext);
   const [agreed, setAgreed] = useState(false);
 
   if (!cart?.length) return <div className="p-6 text-center text-gray-600">Your cart is empty.</div>;
@@ -48,11 +48,11 @@ function Cart() {
                   <td className="p-3">
                     <div className="flex justify-center items-center gap-2">
                       <button
-                        onClick={() => updateQty(p.id, Math.max(1, qty - 1))}
+                        onClick={() => updateQuantity(p.id, Math.max(1, qty - 1))}
                         className="px-2 py-1 rounded border" aria-label={`Decrease ${p.name} quantity`}>−</button>
                       <span className="w-8 text-center">{qty}</span>
                       <button
-                        onClick={() => updateQty(p.id, qty + 1)}   // ← fixed typo & logic
+                        onClick={() => updateQuantity(p.id, qty + 1)}   // ← fixed typo & logic
                         className="px-2 py-1 rounded border" aria-label={`Increase ${p.name} quantity`}>+</button>
                     </div>
                   </td>
