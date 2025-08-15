@@ -8,7 +8,10 @@ const Contact = () => {
       <div className="bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-xl font-semibold mb-4">Get in Touch</h2>
         <p className="mb-4">
-          Email us at: <a href="mailto:hello@yarnlychic.com" className="text-purple-600 hover:underline">hello@yarnlychic.com</a>
+          Email us at: <a href="mailto:yarnlychic@gmail.com" className="text-purple-600 hover:underline">yarnlychic@gmail.com</a>
+        </p>
+        <p className="mb-4">
+            Call us at: <a href="tel:+254716044996" className="text-purple-600 hover:underline">+254716044996</a>
         </p>
         
         <h3 className="font-medium mb-2">Business Hours:</h3>

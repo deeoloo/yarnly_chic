@@ -10,6 +10,7 @@ import SizeChart from "./components/SizeChart"
 import FAQs from "./components/Faqs"
 import Socials from "./components/Socials"
 import Policies from "./components/Policies"
+import Contact from "./components/Contact"
 
 
 export const routes = createBrowserRouter([
@@ -56,6 +57,10 @@ export const routes = createBrowserRouter([
             {
                 path: 'socials',
                 element: <Socials/>
+            },
+            {
+                path: 'contact',
+                element: <Contact/>
             },
         ]
     }
