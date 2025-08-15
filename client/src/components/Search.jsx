@@ -21,7 +21,7 @@ function Search(){
                 <X onClick={()=>{nav(location.state.location.pathname)}} className="md:absolute top-5 right-5"/>
                 <div className="md:w-[80vh] mx-auto w-full mt-0 p-1 md:rounded-2xl  md:drop-shadow-lg shadow flex space-x-3 items-center md:mt-20 px-3">
                     <input type="search" name="search" value={term} onChange={(e)=>setTerm(e.target.value)} id="search" className="w-full text-lg focus:outline-0 p-1" />
-                    <FaSearch className="w-fit"/>p
+                    <FaSearch className="w-fit"/>
                 </div>
             </div>
             
