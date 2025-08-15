@@ -6,6 +6,10 @@ import About from "./pages/About"
 import Cart from "./components/Cart"
 import Checkout from "./components/Checkout"
 import Product from "./components/Product"
+import SizeChart from "./components/SizeChart"
+import FAQs from "./components/Faqs"
+import Socials from "./components/Socials"
+import Policies from "./components/Policies"
 
 
 export const routes = createBrowserRouter([
@@ -36,7 +40,23 @@ export const routes = createBrowserRouter([
             {
                 path: 'product/:product',
                 element: <Product/>
-            }
+            },
+            {
+                path: 'policies',
+                element: <Policies/>
+            },
+            {
+                path: 'sizechart',
+                element: <SizeChart/>
+            },
+            {
+                path: 'faqs',
+                element: <FAQs/>
+            },
+            {
+                path: 'socials',
+                element: <Socials/>
+            },
         ]
     }
 ])

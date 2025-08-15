@@ -44,7 +44,7 @@ const Footer = () => {
           <nav className="flex flex-col gap-2">
             <Link to="/contact" className="hover:underline">Contact</Link>
             <Link to="/faqs" className="hover:underline">FAQs</Link>
-            <Link to="/size-chart" className="hover:underline">Size Chart</Link>
+            <Link to="/sizechart" className="hover:underline">Size Chart</Link>
           </nav>
         </div>
 
