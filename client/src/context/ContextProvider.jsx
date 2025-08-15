@@ -58,9 +58,9 @@ function ContextProvider({children}){
           { id: product.id,
             name: product.name,
             price: product.price,
-            images: product.images?.[0] || "", 
+            images: assetUrl(product.images?.[0]) || "", 
             size: product.size,
-            quantity: product.quantity
+            quantity: 1,
           },
         ];
       });

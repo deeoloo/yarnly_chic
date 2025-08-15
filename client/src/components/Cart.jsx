@@ -8,7 +8,7 @@ const fmtKES = n =>
 
 function Cart() {
   const navigate = useNavigate();
-  const {assetUrl, cart, updateQuantity, removeFromCart, subtotal, clearCart } = useContext(ApiContext);
+  const {cart, updateQuantity, removeFromCart, subtotal, clearCart } = useContext(ApiContext);
   const [agreed, setAgreed] = useState(false);
 
   if (!cart?.length) return <div className="p-6 text-center text-gray-600">Your cart is empty.</div>;
@@ -38,7 +38,7 @@ function Cart() {
                 <tr key={p.id} className="border-t">
                   <td className="p-3">
                     <div className="flex items-center gap-3">
-                      <img src={assetUrl(p.images)} alt={p.name} className="w-14 h-14 object-cover rounded" />
+                      <img src={p.images} alt={p.name} className="w-14 h-14 object-cover rounded" />
                       <div className="min-w-0"><div className="font-medium truncate">{p.name}</div></div>
                     </div>
                   </td>
