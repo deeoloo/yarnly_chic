@@ -6,16 +6,17 @@ const Policies = () => {
       title: "Shipping Policy",
       items: [
         "Orders processed within 1-3 business days.",
-        "Free shipping on orders over $50.",
+        "Free shipping on orders over ksh 10,000.",
         "International shipping available (extra fees may apply).",
       ],
     },
     {
       title: "Returns & Refunds",
       items: [
-        "30-day return window for unworn items.",
+        "Standard production time is 7–21 working days depending on complexity and order volume.",
         "Refunds issued to original payment method.",
-        "Exchanges subject to product availability.",
+        "No returns on custom-made orders, but adjustments can be discussed if there are fitting concerns.",
+        "All items are handmade and may have slight variations, which add to their uniqueness."
       ],
     },
     {
