@@ -46,7 +46,7 @@ function ContextProvider({children}){
     const addToCart = useCallback((product) => {
       setCart(prev => {
         const existingIndex = prev.findIndex(p => p.id === product.id);
-        if (existingIndex !== -1) {
+        if (!existingIndex == -1) {
           const next=[...prev];
           next[existingIndex] = {
             ...next[existingIndex],
