@@ -1,12 +1,13 @@
 import { Menu, Search, ShoppingBag, X } from "lucide-react";
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ApiContext } from "../context/ContextProvider";
 
 function Navbar() {
   const {cart} = useContext(ApiContext)
   const [isOpen, setIsOpen] = useState(false);
   const cartCount = cart.length;
+  const location = useLocation()
   const [navTop, setNavTop] = useState("top-[44px]");
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -58,9 +59,9 @@ function Navbar() {
             </div>
 
             <div className="flex items-center space-x-4">
-              <a href="#">
+              <Link to="/search" state={{location}}>
                 <Search size={24} />
-              </a>
+              </Link>
               <div className="relative">
                 <Link to='/cart'>
                   <ShoppingBag size={24} />

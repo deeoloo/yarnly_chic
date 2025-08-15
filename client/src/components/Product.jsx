@@ -13,21 +13,24 @@ function Product(){
         id: product.id,
         name: product.name,
         price: product.price,
+        images: product.images,
         size:"",
         quantity: 0
     })
+    
     const breadcrumbItems = [
         { label: "Home", href: "/" },
         { label: product.name, href: "" }, 
     ];
 
     function handleSubmit(e){
-        console.log(e)
+        
         addToCart(formdata)
         setFormData({
             id: product.id,
             name: product.name,
             price: product.price,
+            images: product.images,
             size:"",
             quantity: 0
         })
@@ -36,8 +39,8 @@ function Product(){
     return (
         <div className="w-full h-fit relative top-20 mb-20">
             <Breadcrumbs items={breadcrumbItems}/>
-            <div className="flex flex-col lg:flex-row gap-4 max-w-[900px] mx-auto border">
-                <div className="w-1/2 mx-auto">
+            <div className="flex flex-col lg:flex-row gap-4 max-w-[900px] mx-auto">
+                <div className="w-1/2 mx-auto shadow-md">
                     <img 
                     className="w-full object-contain"
                     src={product.images[0]} 
@@ -66,9 +69,9 @@ function Product(){
                         size: e.target.value
                     })}>
                         <option value=""></option>
-                        <option value="s">Small</option>
-                        <option value="m">Medium</option>
-                        <option value="l">Large</option>
+                        {product.sizes.map((p)=>(<option value={p}>{p}</option>))}
+                        
+                       
                     </select>
 
                     <div className="">
@@ -84,7 +87,12 @@ function Product(){
                         </div>
                     </div>
                     <button onClick={handleSubmit} className="w-full bg-purple-800 text-white font-bold p-2 my-5">Add to Cart</button>
+                    <div className="">
+                        <h2 className="text-lg font-bold">Description</h2>
+                        <p className="">{product.description}</p>
+                    </div>
                 </div>
+                
             </div>
             
         </div>

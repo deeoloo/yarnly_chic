@@ -29,13 +29,15 @@ function Shop() {
       <div className="flex-grow p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((prod) => (
-            <ProductCard
-              key={prod.id}
-              name={prod.name}
-              price={prod.price}
-              image={prod.images[0]}
-              product={prod}
-            />
+            <div className="mx-auto" key={prod.id}>
+                <ProductCard
+                  name={prod.name}
+                  price={prod.price}
+                  image={prod.images[0]}
+                  product={prod}
+                />
+            </div>
+            
           ))
         ) : (
           <p className="col-span-full text-center text-gray-500">No products found</p>

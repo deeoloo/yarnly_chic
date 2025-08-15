@@ -6,7 +6,7 @@ function ProductCard({
   price,
   product
 }) {
-    console.log(product,name)
+    
     return (
         <div className="w-full h-fit max-w-xs bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
         

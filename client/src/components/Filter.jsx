@@ -46,7 +46,7 @@ function Filter({ onFilterChange }) {
 
 
     return (
-        <div className="min-w-[23vh] max-w-[25vh] p-4">
+        <div className="sr-only md:not-sr-only min-w-[23vh] max-w-[25vh]">
         {filterSections.map((section) => (
             <div key={section.key} className="border-b-2 border-gray-200">
             

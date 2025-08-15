@@ -6,6 +6,7 @@ import About from "./pages/About"
 import Cart from "./components/Cart"
 import Checkout from "./components/Checkout"
 import Product from "./components/Product"
+import Search from "./components/Search"
 import SizeChart from "./components/SizeChart"
 import FAQs from "./components/Faqs"
 import Socials from "./components/Socials"
@@ -63,5 +64,9 @@ export const routes = createBrowserRouter([
                 element: <Contact/>
             },
         ]
+    },
+    {
+        path: '/search',
+        element: <Search/>
     }
 ])

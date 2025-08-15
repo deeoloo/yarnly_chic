@@ -34,11 +34,12 @@ function Cart() {
           <tbody>
             {cart.map((p) => {
               const qty = p.quantity ?? p.qty ?? 1; 
+              
               return (
                 <tr key={p.id} className="border-t">
                   <td className="p-3">
                     <div className="flex items-center gap-3">
-                      <img src={p.images} alt={p.name} className="w-14 h-14 object-cover rounded" />
+                      <img src={p.images} alt={p.name} className="w-[10vw] h-[10vh] object-contain rounded" />
                       <div className="min-w-0"><div className="font-medium truncate">{p.name}</div></div>
                     </div>
                   </td>

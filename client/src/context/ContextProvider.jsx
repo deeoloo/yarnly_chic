@@ -45,25 +45,25 @@ function ContextProvider({children}){
 
     const addToCart = useCallback((product) => {
       setCart(prev => {
-      const existingIndex = prev.findIndex(p => p.id === product.id);
-      if (existingIndex !== -1) {
-        const next = [...prev];
-        next[existingIndex] = {
-          ...next[existingIndex],
-          quantity: next[existingIndex].quantity + 1
-        };
-        return next;
-      }
-      return [...prev, 
-        { 
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          images: assetUrl(product.images?.[0]) || "", 
-          size: product.size,
-          quantity: 1, // Default quantity set to 1
+        const existing = prev.find(p => p.id === product.id);
+        if (!existing== -1) {
+          const next=[...prev];
+          next[existing] = {
+            ...next[existing],
+            quantity: next[existing].quantity + 1
+          };
+          return next;
         }
-      ];
+        console.log(product.images)
+        return [...prev,
+          { id: product.id,
+            name: product.name,
+            price: product.price,
+            images: product.images?.[0] || "", 
+            size: product.size,
+            quantity: product.quantity
+          },
+        ];
       });
     }, []);
 
