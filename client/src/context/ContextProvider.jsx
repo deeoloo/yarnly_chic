@@ -72,7 +72,7 @@ function ContextProvider({children}){
     );
 
     const updateQuantity = useCallback(
-      (id, quantity) => setCart(prev => prev.map(p => p.id?{
+      (id, quantity) => setCart(prev => prev.map(p => p.id===id?{
         ...p, quantity:Math.max(1, quantity)} : p)),
       []
     );
