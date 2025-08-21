@@ -42,7 +42,7 @@ function Cart() {
             {/* Product details */}
             <div className="flex-1">
               <div className="font-medium text-lg truncate">{p.name}</div>
-              <div className="text-sm text-purple-500 mb-2">{fmtKES(p.price)}</div>
+              <div className="text-sm font-medium mb-2">{fmtKES(p.price)}</div>
             </div>
 
             {/* Quantity controls */}
@@ -110,7 +110,7 @@ function Cart() {
       </div>
 
       <p className="text-xs text-gray-500">
-        Tax included and shipping calculated at checkout.
+        Tax included and delivery cost are calculated at checkout.
       </p>
     </div>
   );

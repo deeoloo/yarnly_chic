@@ -1,11 +1,10 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useMemo, useState, useEffect } from "react";
 import { ApiContext } from "../context/ContextProvider";
 
 const POCHI_NUMBER = "0716044996";
 const CURRENCY = "KES";
 
 const shippingOptions = [
-  { id: "free",   name: "FREE SHIPPING", desc: "",                                            price: 0   },
   { id: "cbd",    name: "CBD Collection point", desc: "(1-3 business days after completion)", price: 150 },
   { id: "mtaani", name: "Mtaani pickup",       desc: "(1-3 business days after completion)",  price: 200 },
   { id: "home",   name: "Doorstep delivery (Nairobi)", desc:"(1-3 business days)",           price: 250 },
@@ -17,7 +16,7 @@ export default function Checkout({ cart: cartProp = [] }) {
   const cart = cartProp.length ? cartProp : (cartCtx || []);
 
   const [country] = useState("Kenya");
-  const [shipId, setShipId] = useState("free");
+  const [shipId, setShipId] = useState("cbd"); 
   const [mpesaCode, setMpesaCode] = useState("");
   const [saveInfo, setSaveInfo] = useState(false);
   const [form, setForm] = useState({
@@ -35,7 +34,23 @@ export default function Checkout({ cart: cartProp = [] }) {
     }, 0);
   }, [cart]);
 
-  const shipping = shippingOptions.find(o => o.id === shipId)?.price ?? 0;
+ 
+  const availableShippingOptions = useMemo(() => {
+    const options = [...shippingOptions];
+    if (subtotal >= 10000) {
+      options.unshift({ id: "free", name: "FREE SHIPPING", desc: "", price: 0 });
+    }
+    return options;
+  }, [subtotal]);
+
+  
+  useEffect(() => {
+    if (subtotal < 10000 && shipId === "free") {
+      setShipId("cbd"); 
+    }
+  }, [subtotal, shipId]);
+
+  const shipping = availableShippingOptions.find(o => o.id === shipId)?.price ?? 0;
   const total = subtotal + shipping;
 
   const onChange = (e) => setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -54,7 +69,7 @@ export default function Checkout({ cart: cartProp = [] }) {
     if (!validateForm()) return;
     setLoading(true);
 
-    const chosen = shippingOptions.find(o => o.id === shipId);
+    const chosen = availableShippingOptions.find(o => o.id === shipId);
     const order = {
       items: cart.map(i => ({
         id: i.id, name: i.name, price: i.price,
@@ -143,18 +158,31 @@ export default function Checkout({ cart: cartProp = [] }) {
 
         {/* Shipping */}
         <div>
-          <h3 className="font-medium mb-2">Shipping Options</h3>
+          <h3 className="font-medium mb-2">Delivery Options</h3>
           <div className="border rounded overflow-hidden">
-            {shippingOptions.map((o) => (
-              <label key={o.id} className={`flex items-center justify-between p-3 border-b last:border-b-0 cursor-pointer ${shipId===o.id ? "bg-amber-50" : ""}`}>
+            {availableShippingOptions.map((o) => (
+              <label
+                key={o.id}
+                className={`flex items-center justify-between p-3 border-b last:border-b-0 cursor-pointer ${
+                  shipId === o.id ? "bg-amber-50" : ""
+                }`}
+              >
                 <div className="flex items-center gap-3">
-                  <input type="radio" name="shipping" value={o.id} checked={shipId===o.id} onChange={() => setShipId(o.id)} />
+                  <input
+                    type="radio"
+                    name="shipping"
+                    value={o.id}
+                    checked={shipId === o.id}
+                    onChange={() => setShipId(o.id)}
+                  />
                   <div>
                     <div className="font-medium text-sm">{o.name}</div>
                     {o.desc && <div className="text-xs text-gray-500">{o.desc}</div>}
                   </div>
                 </div>
-                <div className="text-sm">{o.price ? `Ksh ${o.price.toLocaleString()}` : "FREE"}</div>
+                <div className="text-sm">
+                  {o.price ? `Ksh ${o.price.toLocaleString()}` : "FREE"}
+                </div>
               </label>
             ))}
           </div>
@@ -211,7 +239,7 @@ export default function Checkout({ cart: cartProp = [] }) {
 
           <div className="border-t pt-2">
             <div className="flex justify-between text-sm"><span>Subtotal</span><span>Ksh {subtotal.toLocaleString()}</span></div>
-            <div className="flex justify-between text-sm"><span>Shipping</span><span>{shipping ? `Ksh ${shipping.toLocaleString()}` : "FREE"}</span></div>
+            <div className="flex justify-between text-sm"><span>Delivery</span><span>{shipping ? `Ksh ${shipping.toLocaleString()}` : "FREE"}</span></div>
             <div className="flex justify-between font-medium text-lg"><span>Total</span><span>Ksh {total.toLocaleString()}</span></div>
 
             {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
