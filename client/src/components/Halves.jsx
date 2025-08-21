@@ -13,7 +13,7 @@ function Halves() {
         my-25 w-full h-fit
       "
     >
-      <div className="flex-shrink-0 w-full md:w-[70vw] lg:w-[50vw] h-full relative">
+      <div className="w-full md:w-1/2 aspect-[4/5] relative"> 
         <img
           src={assetUrl("/images/runway1.jpg")}
           className="w-full h-full object-cover"
@@ -28,7 +28,7 @@ function Halves() {
         </div>
       </div>
 
-      <div className="flex-shrink-0 w-full md:w-[70vw] lg:w-[50vw] h-full relative border-l lg:border-l">
+      <div className="w-full md:w-1/2 aspect-[4/5] relative"> 
         <img
           src={assetUrl("/images/runway2.jpg")}
           className="w-full h-full object-cover"
