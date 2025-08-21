@@ -6,8 +6,8 @@ const Footer = () => {
     <footer className="bg-purple-300 py-10 w-full relative ">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-black">
         
-        <div className="bg-gray-200 p-6 rounded">
-          <Link to="/" className="font-semibold text-lg mb-3 inline-block hover:underline">
+        <div className="p-6">
+          <Link to="/" className="text-lg-purple-300 mb-3 inline-block hover:underline">
             YarnlyChic
           </Link>
           <nav className="flex flex-col gap-2 mb-4">
@@ -27,8 +27,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="bg-gray-200 p-6 rounded">
-          <Link to="/about" className="font-semibold text-lg mb-3 inline-block hover:underline">
+        <div className="p-6">
+          <Link to="/about" className="text-lg-purple-300 mb-3 inline-block hover:underline">
             About
           </Link>
           <nav className="flex flex-col gap-2">
@@ -38,7 +38,7 @@ const Footer = () => {
 
         
         <div className="bg-gray-200 p-6 rounded">
-          <Link to="/information" className="font-semibold text-lg mb-3 inline-block hover:underline">
+          <Link to="/information" className="text-lg-purple-300 mb-3 inline-block hover:underline">
             Information
           </Link>
           <nav className="flex flex-col gap-2">
@@ -50,7 +50,7 @@ const Footer = () => {
 
         
         <div className="bg-gray-200 p-6 rounded">
-          <Link to="/follow-our-journey" className="font-semibold text-lg mb-3 inline-block hover:underline">
+          <Link to="/follow-our-journey" className="text-lg-purple-300 mb-3 inline-block hover:underline">
             Follow Our Journey
           </Link>
           <p className="text-sm mb-4">
