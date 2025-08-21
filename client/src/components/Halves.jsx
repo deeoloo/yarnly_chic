@@ -10,10 +10,10 @@ function Halves() {
         flex flex-col 
         md:flex-row md:overflow-x-auto 
         lg:overflow-x-hidden 
-        my-24 w-full h-fit
+        my-25 w-full h-fit
       "
     >
-      <div className="w-full md:w-1/2 aspect-[4/5] relative">
+      <div className="flex-shrink-0 w-full md:w-[70vw] lg:w-[50vw] h-full relative">
         <img
           src={assetUrl("/images/runway1.jpg")}
           className="w-full h-full object-cover"
@@ -28,7 +28,7 @@ function Halves() {
         </div>
       </div>
 
-      <div className="w-full md:w-1/2 aspect-[4/5] relative">
+      <div className="flex-shrink-0 w-full md:w-[70vw] lg:w-[50vw] h-full relative border-l lg:border-l">
         <img
           src={assetUrl("/images/runway2.jpg")}
           className="w-full h-full object-cover"
