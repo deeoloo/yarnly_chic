@@ -10,7 +10,7 @@ const filterSections = [
     options: ["All", "Dresses", "Bottoms", "Tops", "Corsets", "Shirts", "Accessories", "Swimwear", "Kids"],
   },
   {
-    key: "occasion",
+    key: "occasions",
     title: "Shop by Occasion",
     options: ["All", "casual", "winter", "everyday", "layering", "gift"],
   },
@@ -36,7 +36,7 @@ function Filter({ onFilterChange }) {
 
     const [selectedFilters, setSelectedFilters] = useState({
         shop: "All",
-        occasion: "All",
+        occasions: "All",
     });
 
     const handleOptionClick = (sectionKey, option) => {
@@ -84,7 +84,7 @@ function Filter({ onFilterChange }) {
                     <ProductCard
                         key={prod.id}
                         price={prod.price}
-                        image={prod.images[0]}
+                        image={prod.image[0]}
                         name={prod.name}
                     />
                     ))}
