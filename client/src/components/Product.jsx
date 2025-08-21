@@ -48,7 +48,7 @@ function Product(){
                 </div>
 
                 <div className="mx-auto w-1/2">
-                    <h2 className="text-xl font-bold p-2">{product.name}</h2>
+                    <h2 className="text-xl-purple-500 font-bold p-2">{product.name}</h2>
                     <p className="text-lg-purple-500 p-2  ">KSH {product.price}</p>
 
                     <div className="flex justify-between mt-3 py-1 px-2 items-center">
@@ -80,7 +80,7 @@ function Product(){
                             <button type="button" onClick={()=>setFormData({...formdata, quantity : formdata.quantity - 1})}>
                                 <FaMinus className="text-black"/>
                             </button>
-                            <span className="text-white font-bold">{formdata.quantity}</span>
+                            <span className="text-black font-bold">{formdata.quantity}</span>
                             <button type="button" onClick={()=>setFormData({...formdata, quantity : formdata.quantity + 1})}>
                                 <FaPlus className="text-black"/>
                             </button>
