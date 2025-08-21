@@ -17,7 +17,7 @@ const SizeChart = () => {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="bg-gray-100">
+                <tr className="bg-purple-400">
                   <th className="p-3 text-left">Size (US)</th>
                   <th className="p-3 text-left">Bust</th>
                   <th className="p-3 text-left">Waist</th>

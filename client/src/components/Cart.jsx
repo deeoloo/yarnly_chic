@@ -101,7 +101,7 @@ function Cart() {
             onClick={() => agreed && navigate("/checkout")}
             disabled={!agreed}
             className={`px-5 py-3 rounded-xl font-semibold text-white ${
-              agreed ? "bg-purple" : "bg-purple cursor-not-allowed"
+              agreed ? "bg-purple-500" : "bg-purple cursor-not-allowed"
             }`}
           >
             Checkout

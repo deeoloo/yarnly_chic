@@ -24,7 +24,7 @@ function ProductCard({
                         {name}
                     </h2>
                 </Link>
-                <p className="text-sm sm:text-base text-gray-700">KSH {price}</p>
+                <p className="text-sm sm:text-base text-purple-500">KSH {price}</p>
             </div>
         </div>
     );
