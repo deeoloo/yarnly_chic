@@ -20,7 +20,7 @@ function ProductCard({
 
             <div className="p-3 text-center">
                 <Link state={{product}} to={`/product/${name}`}>
-                    <h2 className="text-base sm:text-lg-purple-500 truncate hover:underline">
+                    <h2 className="text-base sm:text-lg text-purple-500 truncate hover:underline">
                         {name}
                     </h2>
                 </Link>

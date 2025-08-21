@@ -37,7 +37,7 @@ const Footer = () => {
         </div>
 
         
-        <div className="bg-gray-200 p-6 rounded">
+        <div className="p-6">
           <Link to="/information" className="text-lg-purple-300 mb-3 inline-block hover:underline">
             Information
           </Link>
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
 
         
-        <div className="bg-gray-200 p-6 rounded">
+        <div className="p-6">
           <Link to="/follow-our-journey" className="text-lg-purple-300 mb-3 inline-block hover:underline">
             Follow Our Journey
           </Link>
