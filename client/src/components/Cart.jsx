@@ -23,49 +23,50 @@ function Cart() {
         </button>
       </div>
 
-      {/* Cart items list */}
-      <div className="space-y-4">
-        {cart.map((p) => {
-          const qty = p.quantity ?? p.qty ?? 1;
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {cart.map((p) => {
+        const qty = p.quantity ?? p.qty ?? 1;
 
-          return (
-            <div
-              key={p.id}
-              className="flex items-center justify-between gap-4 p-4 border rounded-xl shadow-sm"
-            >
-              <div className="flex items-center gap-3">
-                <img
-                  src={p.images}
-                  alt={p.name}
-                  className="w-20 h-20 object-contain rounded"
-                />
-                <div>
-                  <div className="font-medium truncate">{p.name}</div>
-                  <div className="text-sm text-gray-600">{fmtKES(p.price)}</div>
-                </div>
+        return (
+          <div
+            key={p.id}
+            className="flex flex-col p-4 border rounded-xl shadow-sm"
+          >
+            {/* Product image */}
+            <img
+              src={p.images}
+              alt={p.name}
+              className="w-full h-40 object-contain rounded mb-3"
+            />
+
+            {/* Product details */}
+            <div className="flex-1">
+              <div className="font-medium text-lg truncate">{p.name}</div>
+              <div className="text-sm text-gray-600 mb-2">{fmtKES(p.price)}</div>
+            </div>
+
+            {/* Quantity controls */}
+            <div className="flex items-center gap-2 mb-2">
+              <button
+                onClick={() => updateQuantity(p.id, Math.max(1, qty - 1))}
+                className="px-2 py-1 rounded border"
+              >
+                −
+              </button>
+              <span className="w-8 text-center">{qty}</span>
+              <button
+                onClick={() => updateQuantity(p.id, qty + 1)}
+                className="px-2 py-1 rounded border"
+              >
+                +
+              </button>
+            </div>
+
+            {/* Total + Remove */}
+            <div className="flex items-center justify-between mt-auto">
+              <div className="font-semibold">
+                {fmtKES((Number(p.price) || 0) * qty)}
               </div>
-
-              {/* Quantity controls */}
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => updateQuantity(p.id, Math.max(1, qty - 1))}
-                  className="px-2 py-1 rounded border"
-                >
-                  −
-                </button>
-                <span className="w-8 text-center">{qty}</span>
-                <button
-                  onClick={() => updateQuantity(p.id, qty + 1)}
-                  className="px-2 py-1 rounded border"
-                >
-                  +
-                </button>
-              </div>
-
-              {/* Total */}
-              <div className="font-semibold">{fmtKES((Number(p.price) || 0) * qty)}</div>
-
-              {/* Remove */}
               <button
                 onClick={() => removeFromCart(p.id)}
                 className="text-sm text-red-500 hover:underline"
@@ -73,9 +74,10 @@ function Cart() {
                 Remove
               </button>
             </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
+    </div>
 
       {/* Footer */}
       <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
