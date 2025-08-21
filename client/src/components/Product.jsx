@@ -54,7 +54,7 @@ function Product(){
                     <div className="flex justify-between mt-3 py-1 px-2 items-center">
                         <span className="">Size: {formdata.size}</span>
                         <div className="w-fit">
-                            <span className="font-bold"> Find your size</span>
+                            <Link to="/sizechart"  className="font-bold"> Find your size</Link>
                             <div className="w-full h-0.5 rounded-full bg-black"></div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ function Product(){
 
                     <div className="">
                         <span className="">Quantity({} in cart)</span>
-                        <div className="w-30 p-1 bg-purple-500 flex justify-between">
+                        <div className="w-30 p-1 flex justify-between">
                             <button type="button" onClick={()=>setFormData({...formdata, quantity : formdata.quantity - 1})}>
                                 <FaMinus className="text-white"/>
                             </button>

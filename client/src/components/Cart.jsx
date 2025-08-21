@@ -69,7 +69,7 @@ function Cart() {
               </div>
               <button
                 onClick={() => removeFromCart(p.id)}
-                className="text-sm text-red-500 hover:underline"
+                className="text-sm text-purple-500 hover:underline"
               >
                 Remove
               </button>
@@ -101,7 +101,7 @@ function Cart() {
             onClick={() => agreed && navigate("/checkout")}
             disabled={!agreed}
             className={`px-5 py-3 rounded-xl font-semibold text-white ${
-              agreed ? "bg-black" : "bg-gray-400 cursor-not-allowed"
+              agreed ? "bg-purple" : "bg-purple-400 cursor-not-allowed"
             }`}
           >
             Checkout
