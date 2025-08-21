@@ -178,8 +178,8 @@ export default function Checkout({ cart: cartProp = [] }) {
         {/* Email + note */}
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-sm mb-1">Email (optional)</label>
-            <input className="w-full p-2 border rounded" name="email" value={form.email} onChange={onChange} type="email" />
+            <label className="block text-sm mb-1">Email </label>
+            <input className="w-full p-2 border rounded" name="email" value={form.email} onChange={onChange} type="email" required />
           </div>
           <div>
             <label className="block text-sm mb-1">Note (optional)</label>
