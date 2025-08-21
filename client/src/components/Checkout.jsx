@@ -216,7 +216,7 @@ export default function Checkout({ cart: cartProp = [] }) {
 
             {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
 
-            <button onClick={placeOrder} className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition" disabled={loading}>
+            <button onClick={placeOrder} className="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition" disabled={loading}>
               {loading ? "Placing Order..." : "Place Order"}
             </button>
           </div>
