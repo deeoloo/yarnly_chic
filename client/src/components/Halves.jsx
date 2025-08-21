@@ -15,7 +15,7 @@ function Halves() {
     >
       <div className="flex-shrink-0 w-full md:w-[70vw] lg:w-[50vw] h-full relative">
         <img
-          src={assetUrl("/images/hero.jpg")}
+          src={assetUrl("/images/runaway1.jpg")}
           className="w-full h-full object-cover"
           alt=""
         />
@@ -30,7 +30,7 @@ function Halves() {
 
       <div className="flex-shrink-0 w-full md:w-[70vw] lg:w-[50vw] h-full relative border-l lg:border-l">
         <img
-          src={assetUrl("/images/hero.jpg")}
+          src={assetUrl("/images/runaway2.jpg")}
           className="w-full h-full object-cover"
           alt=""
         />
