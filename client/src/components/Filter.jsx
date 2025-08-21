@@ -63,8 +63,8 @@ function Filter({ onFilterChange }) {
                     {section.options.map((opt) => (
                         <span
                         key={opt}
-                        className={`cursor-pointer hover:text-blue-500 ${
-                            selectedFilters[section.key] === opt ? "font-bold text-blue-500" : ""
+                        className={`cursor-pointer hover:text-purple-500 ${
+                            selectedFilters[section.key] === opt ? "font-bold text-purple-500" : ""
                         }`}
                         onClick={() => handleOptionClick(section.key, opt)}
                         >

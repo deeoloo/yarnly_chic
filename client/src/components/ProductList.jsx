@@ -8,7 +8,7 @@ function ProductList() {
   const displayProducts = products.slice(0, 8);
 
   return (
-    <div className="flex w-full overflow-x-auto space-x-4 scrollbar-hide my-15 bg-purple-100 p-10">
+    <div className="flex w-full overflow-x-auto space-x-4 scrollbar-hide my-15 p-10">
       {displayProducts.map((prod, i) => (
         <div key={prod.id || i} className="flex-shrink-0 min-w-[220px]">
           <ProductCard

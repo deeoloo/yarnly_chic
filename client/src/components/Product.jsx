@@ -15,7 +15,7 @@ function Product(){
         price: product.price,
         images: product.images,
         size:"",
-        quantity: 0
+        quantity: 1
     })
     
     const breadcrumbItems = [
@@ -32,7 +32,7 @@ function Product(){
             price: product.price,
             images: product.images,
             size:"",
-            quantity: 0
+            quantity: 1
         })
     }
     
@@ -49,7 +49,7 @@ function Product(){
 
                 <div className="mx-auto w-1/2">
                     <h2 className="text-xl font-bold p-2">{product.name}</h2>
-                    <p className="text-lg p-2   ">KSH {product.price}</p>
+                    <p className="text-lg-purple-500 p-2  ">KSH {product.price}</p>
 
                     <div className="flex justify-between mt-3 py-1 px-2 items-center">
                         <span className="">Size: {formdata.size}</span>
@@ -78,11 +78,11 @@ function Product(){
                         <span className="">Quantity({} in cart)</span>
                         <div className="w-30 p-1 flex justify-between">
                             <button type="button" onClick={()=>setFormData({...formdata, quantity : formdata.quantity - 1})}>
-                                <FaMinus className="text-white"/>
+                                <FaMinus className="text-black"/>
                             </button>
                             <span className="text-white font-bold">{formdata.quantity}</span>
                             <button type="button" onClick={()=>setFormData({...formdata, quantity : formdata.quantity + 1})}>
-                                <FaPlus className="text-white"/>
+                                <FaPlus className="text-black"/>
                             </button>
                         </div>
                     </div>

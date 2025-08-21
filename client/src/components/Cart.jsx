@@ -42,7 +42,7 @@ function Cart() {
             {/* Product details */}
             <div className="flex-1">
               <div className="font-medium text-lg truncate">{p.name}</div>
-              <div className="text-sm text-gray-600 mb-2">{fmtKES(p.price)}</div>
+              <div className="text-sm text-purple-500 mb-2">{fmtKES(p.price)}</div>
             </div>
 
             {/* Quantity controls */}
@@ -101,7 +101,7 @@ function Cart() {
             onClick={() => agreed && navigate("/checkout")}
             disabled={!agreed}
             className={`px-5 py-3 rounded-xl font-semibold text-white ${
-              agreed ? "bg-purple" : "bg-purple-400 cursor-not-allowed"
+              agreed ? "bg-purple" : "bg-purple cursor-not-allowed"
             }`}
           >
             Checkout
