@@ -7,12 +7,12 @@ const filterSections = [
   {
     key: "shop",
     title: "Shop",
-    options: ["All", "Dresses", "Bottoms", "Tops", "Corsets", "Shirts", "Accessories", "Swimwear"],
+    options: ["All", "Dresses", "Bottoms", "Tops", "Corsets", "Shirts", "Accessories", "Swimwear", "Kids"],
   },
   {
     key: "occasion",
     title: "Shop by Occasion",
-    options: ["All", "casual", "winter", "everyday", "layering"],
+    options: ["All", "casual", "winter", "everyday", "layering", "gift"],
   },
   {
     key: "bestsellers",
