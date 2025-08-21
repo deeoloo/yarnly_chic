@@ -59,7 +59,7 @@ function ContextProvider({children}){
           { id: product.id,
             name: product.name,
             price: product.price,
-            images: product.image?.[0] || "", 
+            images: product.images?.[0] || "", 
             size: product.size,
             quantity: product.quantity
           },
