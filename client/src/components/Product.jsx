@@ -1,6 +1,6 @@
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Breadcrumbs from "./Breadcrumb";
-import { useLocation} from "react-router-dom";
+import { useLocation, Link} from "react-router-dom";
 import { useContext, useState } from "react";
 import { ApiContext } from "../context/ContextProvider";
 
