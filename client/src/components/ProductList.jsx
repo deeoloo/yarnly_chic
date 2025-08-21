@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 function ProductList() {
   const { products } = useContext(ApiContext);
 
-  const displayProducts = products.slice(0, 8);
+  const displayProducts = products.slice(0, 3);
 
   return (
     <div className="flex w-full overflow-x-auto space-x-4 scrollbar-hide my-15 p-10">

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import { ApiContext } from "../context/ContextProvider";
 
 const fmtKES = n =>
@@ -88,7 +88,7 @@ function Cart() {
             onChange={(e) => setAgreed(e.target.checked)}
           />
           <span>
-            I agree to the <span className="underline">Terms & Conditions</span>.
+            I agree to the <Link to="/policies" className="underline">Terms & Conditions</Link>.
           </span>
         </label>
 
