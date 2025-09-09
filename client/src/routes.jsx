@@ -12,6 +12,7 @@ import FAQs from "./components/Faqs"
 import Socials from "./components/Socials"
 import Policies from "./components/Policies"
 import Contact from "./components/Contact"
+import Layout from "./components/Layout"
 
 
 export const routes = createBrowserRouter([
@@ -63,6 +64,10 @@ export const routes = createBrowserRouter([
                 path: 'contact',
                 element: <Contact/>
             },
+            {
+                path: 'dashboard',
+                element: <Layout/>
+            }
         ]
     },
     {
