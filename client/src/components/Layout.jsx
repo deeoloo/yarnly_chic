@@ -1,12 +1,14 @@
-import Dashboard from "./Dashboard"
+
 import SideBar from "./SideBar"
+import { Outlet } from "react-router-dom"
 
 function Layout(){
+    
     return(
         <main className="mt-20">
-            <div className="border flex">
+            <div className="border lg:flex">
                 <SideBar/>
-                <Dashboard/>
+                <Outlet/>
             </div>
         </main>
     )

@@ -13,6 +13,8 @@ import Socials from "./components/Socials"
 import Policies from "./components/Policies"
 import Contact from "./components/Contact"
 import Layout from "./components/Layout"
+import Products from "./pages/Products"
+import Dashboard from "./components/Dashboard"
 
 
 export const routes = createBrowserRouter([
@@ -65,8 +67,18 @@ export const routes = createBrowserRouter([
                 element: <Contact/>
             },
             {
-                path: 'dashboard',
-                element: <Layout/>
+                path: '/dashboard',
+                element: <Layout/>,
+                children:[
+                    {
+                        index: true,
+                        element: <Dashboard/>
+                    },
+                    {
+                        path:'products',
+                        element:<Products/>
+                    }
+                ]
             }
         ]
     },
@@ -74,4 +86,5 @@ export const routes = createBrowserRouter([
         path: '/search',
         element: <Search/>
     }
+    
 ])
