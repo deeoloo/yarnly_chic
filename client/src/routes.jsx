@@ -15,6 +15,7 @@ import Contact from "./components/Contact"
 import Layout from "./components/Layout"
 import Products from "./pages/Products"
 import Dashboard from "./components/Dashboard"
+import Protected from "./components/Protected"
 
 
 export const routes = createBrowserRouter([
@@ -72,11 +73,11 @@ export const routes = createBrowserRouter([
                 children:[
                     {
                         index: true,
-                        element: <Dashboard/>
+                        element: <Protected><Dashboard/></Protected>
                     },
                     {
                         path:'products',
-                        element:<Products/>
+                        element:<Protected><Products/></Protected>
                     }
                 ]
             }

@@ -73,7 +73,7 @@ export default function Checkout({ cart: cartProp = [] }) {
     const order = {
       items: cart.map(i => ({
         id: i.id, name: i.name, price: i.price,
-        quantity: Number(i.quantity ?? i.qty ?? 1), image: i.image
+        quantity: Number(i.quantity ?? i.qty ?? 1), image: i.images
       })),
       pricing: { subtotal, shipping: chosen?.price || 0, total, currency: CURRENCY },
       shippingMethod: chosen,
@@ -96,7 +96,7 @@ export default function Checkout({ cart: cartProp = [] }) {
       });
 
       setDone(true);
-    } catch (err) {
+    } catch (e) {
       setError("Could not place order. Please try again or contact us.");
     } finally {
       setLoading(false);
@@ -105,7 +105,7 @@ export default function Checkout({ cart: cartProp = [] }) {
 
   if (done) {
     return (
-      <div className="text-center p-5">
+      <div className="text-center p-5 my-20">
         <h2 className="text-2xl font-bold">Order Placed Successfully!</h2>
         <p>Thank you for your order. We will contact you shortly after we verify your payment.</p>
       </div>
@@ -113,7 +113,7 @@ export default function Checkout({ cart: cartProp = [] }) {
   }
 
   return (
-    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 p-6">
+    <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 p-6 my-20 h-full">
       {/* LEFT */}
       <div className="space-y-6">
         <h2 className="text-xl font-semibold">Delivery</h2>
@@ -218,14 +218,15 @@ export default function Checkout({ cart: cartProp = [] }) {
 
       {/* RIGHT: Summary */}
       <div>
-        <div className="border rounded p-4 space-y-4 sticky top-4">
+        <div className="border rounded p-4 space-y-4 sticky top-20">
           <div className="space-y-2">
             {cart.map(item => {
               const qty = Number(item.quantity ?? item.qty ?? 1);
               return (
                 <div key={item.id} className="flex justify-between items-center text-sm">
                   <div className="flex items-center gap-3">
-                    {item.image && <img src={item.image} alt={item.name} className="w-12 h-12 object-cover rounded" />}
+                    {console.log(item)}
+                    {item.images && <img src={item.images} alt={item.name} className="w-12 h-12 object-cover rounded" />}
                     <div>
                       <div className="font-medium">{item.name}</div>
                       <div className="text-gray-500">Quantity: {qty}</div>

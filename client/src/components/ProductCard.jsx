@@ -8,7 +8,7 @@ function ProductCard({
 }) {
     
     return (
-        <div className="w-full h-fit max-w-xs bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+        <div className="w-full h-fit max-w-sm bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
         
             <Link state={{product}} to={`/product/${name}`} className="aspect-square overflow-hidden block">
                 <img

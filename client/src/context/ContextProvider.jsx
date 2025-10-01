@@ -3,7 +3,7 @@ import { createContext, useCallback, useEffect, useMemo, useState } from "react"
 export const ApiContext = createContext();
 
 const apiUrl = import.meta.env.VITE_API_URL
-
+console.log(apiUrl)
 function ContextProvider({children}){
     const [products, setProducts] = useState([])
     useEffect(() => {

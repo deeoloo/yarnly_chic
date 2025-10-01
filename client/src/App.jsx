@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Banner from './components/Banner'
 import Footer from './pages/Footer'
+import ProtectedModal from './components/ProtectedModal'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Navbar/>
         <div className="flex-grow">
             <Outlet/>
+            
         </div>
         <Footer/>
       </div>

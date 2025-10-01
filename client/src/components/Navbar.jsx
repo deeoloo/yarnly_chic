@@ -2,6 +2,7 @@ import { Menu, Search, ShoppingBag, X } from "lucide-react";
 import { useState, useEffect, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ApiContext } from "../context/ContextProvider";
+import ProtectedModal from "./ProtectedModal";
 
 function Navbar() {
   const {cart} = useContext(ApiContext)
@@ -37,7 +38,7 @@ function Navbar() {
       <nav className={`fixed w-full z-50 shadow-md pr-2 pl-2 bg-white transition-all duration-300 ${navTop}`}>
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            
+            <ProtectedModal/>
             <div className="flex items-center justify-between w-1/2 md:w-fit">
               <button
                 onClick={toggleMenu}
