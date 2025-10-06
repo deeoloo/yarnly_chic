@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom"
 
 function SideBar(){
     const location = useLocation()
-    console.log(location)
+    
     return(
         <div className="lg:w-[20vw]">
             <ul className="p-2">

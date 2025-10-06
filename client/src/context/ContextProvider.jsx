@@ -6,6 +6,8 @@ const apiUrl = import.meta.env.VITE_API_URL
 console.log(apiUrl)
 function ContextProvider({children}){
     const [products, setProducts] = useState([])
+    const [orders, setOrders] = useState([])
+
     useEffect(() => {
     fetch(`${apiUrl}/products`)
       .then(r => r.json())
@@ -20,6 +22,9 @@ function ContextProvider({children}){
         }));
         setProducts(normalized);
       });
+    fetch(`${apiUrl}/orders`)
+    .then((r => r.json()))
+    .then(data=>setOrders(data))
   }, []);
 
   const assetUrl = useCallback((path) => {
@@ -87,6 +92,7 @@ function ContextProvider({children}){
     const value = useMemo(() => ({
       apiUrl,
       products,
+      orders,
       cart,
       assetUrl,
       addToCart,
@@ -95,7 +101,7 @@ function ContextProvider({children}){
       clearCart,
       subtotal,
     }), 
-    [products, assetUrl, cart, addToCart, removeFromCart, updateQuantity, clearCart, subtotal]
+    [products, orders, assetUrl, cart, addToCart, removeFromCart, updateQuantity, clearCart, subtotal]
   );
 
     return(
