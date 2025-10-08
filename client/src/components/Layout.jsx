@@ -6,7 +6,7 @@ function Layout(){
     
     return(
         <main className="mt-20">
-            <div className="border lg:flex">
+            <div className="lg:flex">
                 <SideBar/>
                 <Outlet/>
             </div>

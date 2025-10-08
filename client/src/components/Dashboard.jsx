@@ -3,37 +3,18 @@ import { FaMoneyBill, FaRegUser } from "react-icons/fa"
 import { ApiContext } from "../context/ContextProvider"
 
 function Dashboard(){
-    const {products} = useContext(ApiContext)
+    const {products, orders} = useContext(ApiContext)
 
-    console.log(products)
-    const orders = [
-        {
-            id: 1,
-            firstName: "John",
-            lastName: "Doe",
-            address: "123 Main Street",
-            city: "Westlands",
-            phone: "0712345678",
-            delivery: "Doorstep delivery (Nairobi) - Ksh 250",
-            payment: "M-Pesa",
-            mpesaCode: "QAB12XYZ3",
-            email: "john@example.com",
-            note: "Leave at the gate",
-        },
-        {
-            id: 2,
-            firstName: "Mary",
-            lastName: "Wanjiku",
-            address: "45 Riverside Lane",
-            city: "Kileleshwa",
-            phone: "0798765432",
-            delivery: "CBD Collection point - Ksh 150",
-            payment: "M-Pesa",
-            mpesaCode: "MPX88LMN7",
-            email: "mary@example.com",
-            note: "",
-        },
-    ];
+    let customers = []
+    for (let order in orders){
+        if (!(order.customer?.email in customers)){
+            customers.push(order.customer?.email)
+        }
+    }
+
+    const revenue = orders.reduce((acc, curr)=>{
+        return acc + curr.pricing.total
+    }, 0)
 
     const [orderPage, setOrderPage] = useState(1)
     const [productPage, setProductPage] = useState(1)
@@ -58,13 +39,9 @@ function Dashboard(){
             <div className="mx-5 lg:max-w-[30vw]">
                 <h2 className="text-2xl mt-2 font-bold">Dashboard</h2>
                 <div className="bg-purple-50 rounded-2xl mt-5 py-1">
-                    <div className="flex justify-between p-3">
+                    <div className="p-3">
                         <h3 className="font-bold text-lg">Overview</h3>
-                        <select name="filter" id="filter" className="rounded-2xl border w-30 p-2">
-                            <option value="Month">Month</option>
-                            <option value="Week">Week</option>
-                            <option value="Day">Day</option>
-                        </select>
+                        
                     </div>
                     <div className="p-1 m-2 rounded-2xl bg-purple-100 flex gap-5 shadow-md">
                         <div className=" rounded-2xl bg-purple-50 w-1/2 p-5">
@@ -72,7 +49,7 @@ function Dashboard(){
                                 <FaRegUser/>
                                 <p className="font-bold">Customers</p>
                             </div>
-                            <h2 className="text-2xl">1293</h2>
+                            <h2 className="text-2xl">{customers.length}</h2>
                         </div>
 
                         <div className="p-5">
@@ -83,7 +60,7 @@ function Dashboard(){
                                 </p>
                             </div>
                             <h2 className="text-2xl">
-                                250,000
+                                {revenue}
                             </h2>
                         </div>
                     </div>
@@ -109,15 +86,15 @@ function Dashboard(){
                             <tbody>
                                 {paginatedOrders.map((order) => (
                                 <tr key={order.id} className="text-center">
-                                    <td className="p-2 border">{order.firstName}</td>
-                                    <td className="p-2 border">{order.lastName}</td>
-                                    <td className="p-2 border">{order.address}</td>
-                                    <td className="p-2 border">{order.city}</td>
-                                    <td className="p-2 border">{order.phone}</td>
-                                    <td className="p-2 border">{order.delivery}</td>
-                                    <td className="p-2 border">{order.payment}</td>
-                                    <td className="p-2 border font-mono">{order.mpesaCode}</td>
-                                    <td className="p-2 border">{order.email}</td>
+                                    <td className="p-2 border">{order.customer.firstName}</td>
+                                    <td className="p-2 border">{order.customer.lastName}</td>
+                                    <td className="p-2 border">{order.customer.address}</td>
+                                    <td className="p-2 border">{order.customer.city}</td>
+                                    <td className="p-2 border">{order.customer.phone}</td>
+                                    <td className="p-2 border">{order.shippingMethod.name}</td>
+                                    <td className="p-2 border">{order.payment.method}</td>
+                                    <td className="p-2 border font-mono">{order.payment.mpesaCode}</td>
+                                    <td className="p-2 border">{order.customer.email}</td>
                                     <td className="p-2 border">{order.note || "-"}</td>
                                 </tr>
                                 ))}
