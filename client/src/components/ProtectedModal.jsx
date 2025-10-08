@@ -22,7 +22,7 @@ function ProtectedModal(){
     const handleSubmit = (e) => {
         e.preventDefault();
         if (key === secret) {
-        sessionStorage.setItem("secret_key", key); // session only
+        sessionStorage.setItem("secret_key", key);
         setIsOpen(false);
         navigate("/dashboard");
         } else {
@@ -63,3 +63,4 @@ function ProtectedModal(){
 }
 
 export default ProtectedModal
+// atsk_1b62ec004961baa9be3ef7f5c3b46bc01122991cf7b2392c0573030044846aa397948dc8

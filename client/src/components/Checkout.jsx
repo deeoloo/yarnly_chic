@@ -12,9 +12,9 @@ const shippingOptions = [
 ];
 
 export default function Checkout({ cart: cartProp = [] }) {
-  const { apiUrl, cart: cartCtx, clearcart } = useContext(ApiContext); 
+  const { apiUrl, cart: cartCtx, clearCart } = useContext(ApiContext); 
   const cart = cartProp.length ? cartProp : (cartCtx || []);
-
+  
   const [country] = useState("Kenya");
   const [shipId, setShipId] = useState("cbd"); 
   const [mpesaCode, setMpesaCode] = useState("");
@@ -94,9 +94,7 @@ export default function Checkout({ cart: cartProp = [] }) {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ order: { ...order, id: saved?.id } })
       });
-
-      clearcart();
-
+      clearCart()
       setDone(true);
     } catch (e) {
       setError("Could not place order. Please try again or contact us.");
@@ -227,7 +225,6 @@ export default function Checkout({ cart: cartProp = [] }) {
               return (
                 <div key={item.id} className="flex justify-between items-center text-sm">
                   <div className="flex items-center gap-3">
-                    {console.log(item)}
                     {item.images && <img src={item.images} alt={item.name} className="w-12 h-12 object-cover rounded" />}
                     <div>
                       <div className="font-medium">{item.name}</div>
