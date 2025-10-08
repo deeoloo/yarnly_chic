@@ -12,7 +12,7 @@ const shippingOptions = [
 ];
 
 export default function Checkout({ cart: cartProp = [] }) {
-  const { apiUrl, cart: cartCtx } = useContext(ApiContext); 
+  const { apiUrl, cart: cartCtx, clearcart } = useContext(ApiContext); 
   const cart = cartProp.length ? cartProp : (cartCtx || []);
 
   const [country] = useState("Kenya");
@@ -94,6 +94,8 @@ export default function Checkout({ cart: cartProp = [] }) {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ order: { ...order, id: saved?.id } })
       });
+
+      clearcart();
 
       setDone(true);
     } catch (e) {

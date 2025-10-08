@@ -6,6 +6,7 @@ import { ApiContext } from "../context/ContextProvider";
 
 function Product(){
     const {addToCart} = useContext(ApiContext)
+    const [added, setAdded] = useState(false)
     const location = useLocation();
     const {product} = location.state;
 
@@ -26,6 +27,8 @@ function Product(){
     function handleSubmit(e){
         
         addToCart(formdata)
+        setAdded(true)
+        setTimeout(() => setAdded(false), 2000);
         setFormData({
             id: product.id,
             name: product.name,
@@ -86,7 +89,9 @@ function Product(){
                             </button>
                         </div>
                     </div>
-                    <button onClick={handleSubmit} className="w-full bg-purple-700 text-white font-bold p-2 my-5">Add to Cart</button>
+                    <button onClick={handleSubmit} className="w-full bg-purple-700 text-white font-bold p-2 my-5">
+                        {added ? "Added to Cart" : "Add to Cart"}
+                    </button>
                     <div className="">
                         <h2 className="text-lg font-bold">Description</h2>
                         <p className="">{product.description}</p>
