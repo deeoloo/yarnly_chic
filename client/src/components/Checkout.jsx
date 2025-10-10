@@ -120,7 +120,7 @@ export default function Checkout({ cart: cartProp = [] }) {
 
         <div>
           <label className="block text-sm mb-1">Country/Region</label>
-          <select className="w-full p-2 border rounded" value={country} disabled>
+          <select className="w-full p-2 border bg-white rounded" value={country} disabled>
             <option>Kenya</option>
           </select>
         </div>
@@ -128,27 +128,27 @@ export default function Checkout({ cart: cartProp = [] }) {
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="block text-sm mb-1">First Name</label>
-            <input className="w-full p-2 border rounded" name="firstName" value={form.firstName} onChange={onChange} required />
+            <input className="w-full p-2 border bg-white rounded" name="firstName" value={form.firstName} onChange={onChange} required />
           </div>
           <div>
             <label className="block text-sm mb-1">Last Name</label>
-            <input className="w-full p-2 border rounded" name="lastName" value={form.lastName} onChange={onChange} required />
+            <input className="w-full p-2 border bg-white rounded" name="lastName" value={form.lastName} onChange={onChange} required />
           </div>
         </div>
 
         <div>
           <label className="block text-sm mb-1">Address</label>
-          <input className="w-full p-2 border rounded" name="address" value={form.address} onChange={onChange} required />
+          <input className="w-full p-2 border bg-white rounded" name="address" value={form.address} onChange={onChange} required />
         </div>
 
         <div>
           <label className="block text-sm mb-1">City/Estate</label>
-          <input className="w-full p-2 border rounded" name="city" value={form.city} onChange={onChange} required />
+          <input className="w-full p-2 border bg-white rounded" name="city" value={form.city} onChange={onChange} required />
         </div>
 
         <div>
           <label className="block text-sm mb-1">Phone number</label>
-          <input className="w-full p-2 border rounded" name="phone" value={form.phone} onChange={onChange} required />
+          <input className="w-full p-2 border bg-white rounded" name="phone" value={form.phone} onChange={onChange} required />
         </div>
 
         <div className="flex items-center gap-2">
@@ -199,7 +199,7 @@ export default function Checkout({ cart: cartProp = [] }) {
           </ol>
           <div>
             <label className="block text-sm mb-1">M-Pesa Code</label>
-            <input className="w-full p-2 border rounded" value={mpesaCode} onChange={(e)=>setMpesaCode(e.target.value)} placeholder="e.g., QAB12XYZ3" required />
+            <input className="w-full p-2 border bg-white rounded" value={mpesaCode} onChange={(e)=>setMpesaCode(e.target.value)} placeholder="e.g., QAB12XYZ3" required />
           </div>
         </div>
 
@@ -207,11 +207,11 @@ export default function Checkout({ cart: cartProp = [] }) {
         <div className="grid grid-cols-2 gap-3">
           <div>
             <label className="block text-sm mb-1">Email </label>
-            <input className="w-full p-2 border rounded" name="email" value={form.email} onChange={onChange} type="email" required />
+            <input className="w-full p-2 border bg-white rounded" name="email" value={form.email} onChange={onChange} type="email" required />
           </div>
           <div>
             <label className="block text-sm mb-1">Note (optional)</label>
-            <textarea className="w-full p-2 border rounded" value={note} onChange={(e)=>setNote(e.target.value)} rows="3" placeholder="Gate code, preferred time…" />
+            <textarea className="w-full p-2 border bg-white rounded" value={note} onChange={(e)=>setNote(e.target.value)} rows="3" placeholder="Gate code, preferred time…" />
           </div>
         </div>
       </div>
